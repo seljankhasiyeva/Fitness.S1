@@ -1,0 +1,50 @@
+﻿@using Fitness.S1.Models
+@model List<Trainer> 
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Trainers</h4>
+            <a asp-action="create" class="btn btn-primary">Add Trainer</a>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                Image
+                            </th>
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Specialty
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                       @foreach(Trainer trainer in Model)
+                        {
+                        <tr>
+                            <td class="py-1">
+                                    <img src="~/images/@trainer.PhotoUrl" alt="image">
+                            </td>
+                            <td>
+									@trainer.Name
+                            </td>
+                                <td>
+                                    @trainer.Specialty
+                                </td>
+                            <td>
+                                    <a asp-action="update" asp-route-id="@trainer.Id" class="btn btn-warning">Update</a>
+                                    <a asp-action="delete" asp-route-id="@trainer.Id" class="btn btn-danger">Delete</a>
+                                    <a asp-action="detail" asp-route-id="@trainer.Id" class="btn btn-success">Detail</a>
+
+                            </td>
+                            
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
