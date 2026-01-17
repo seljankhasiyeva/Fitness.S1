@@ -62,7 +62,26 @@
 					<li><a href="#blog" class="smoothScroll">Blog</a></li>
 					<li><a href="#price" class="smoothScroll">Prices</a></li>
 					<li><a href="#testimonial" class="smoothScroll">Testimonials</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							Account <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							@if(User.Identity.IsAuthenticated)
+							{
+								<li><a href="my-account.html">@User.Identity.Name</a></li>
+								<li><a asp-action="logout" asp-controller="account" >Logout</a></li>
+							}
+							else
+							{
+								<li><a href="my-account.html">My Account</a></li>
+								<li><a href="login-register.html">Login | Register</a></li>
+							}
+						</ul>
+					</li>
+
 				</ul>
+				
 			</div>
 
 		</div>
